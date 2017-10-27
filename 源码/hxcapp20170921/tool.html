@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/mui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/iconfont2.css"/>
+    <link rel="stylesheet" type="text/css" href="css/icons-extra.css"/>
+    <style>
+    	#myTop{
+    		background: #444444;
+    		margin: 0;
+    		border: none;
+    	}
+    	#myTop li{
+    		border: none;
+    	}
+    	#myTop a div,#myTop a span{
+    		color: white;
+    	}
+    	.title{
+    		height: 20px;
+    		line-height: 20px;
+    		text-indent: 10px;
+    	}
+    </style>
+</head>
+<body>
+ 	 <header class="mui-bar mui-bar-nav mui-action-back">
+		<h1 class="mui-title">工具</h1>
+	</header>
+    <div class="mui-content">
+    	<!--banner 开始-->
+    	<ul class="mui-table-view mui-grid-view mui-grid-9" id="myTop">
+    		<img width="100%" height="auto" src="images/banner2.jpg">
+        </ul>
+        <!--banner 结束-->
+        
+        <!--工具目录-->
+        <h5 class="title">本站工具</h5>
+    	<ul class="mui-table-view mui-grid-view mui-grid-9" style="background: white;">
+		<li id="itzixun" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+	    <a href="#">
+	        <span class="mui-icon mui-icon-spinner mui-spin" style="color:#007AFF;"></span>
+	        <div class="mui-media-body">IT资讯</div>
+	    </a>
+    	</li>
+    	<li id="chat" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="#">
+    	        <span class="mui-icon iconfont icon-3" style="color: cornflowerblue;"></span>
+    	        <div class="mui-media-body">与小秘亲聊</div>
+    	    </a>
+    	</li>
+    	<li id="liuyan" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="#">
+    	        <span class="mui-icon mui-icon-chat" style="color: #009988;"></span>
+    	        <div class="mui-media-body">留言吐槽</div>
+    	    </a>
+    	</li>
+    	<li id="dashan" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="#">
+    	        <span class="mui-icon iconfont icon-hongbao" style="color: red;"></span>
+    	        <div class="mui-media-body">打赏一下</div>
+    	    </a>
+    	</li>
+    	
+    	<li id="sao" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="#">
+    	        <span class="mui-icon-extra mui-icon-extra-sweep" style="color: green;font-size: 41px;"></span>
+    	        <div class="mui-media-body">扫一扫</div>
+    	    </a>
+    	</li>
+    	
+    	<li id="move" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="#">
+    	        <span class="mui-icon mui-icon-videocam" style="color: green;"></span>
+    	        <div class="mui-media-body">小视频</div>
+    	    </a>
+    	</li>
+    	
+    	</ul>
+    	<h5 class="title">其他工具</h5>
+    	<ul class="mui-table-view mui-grid-view mui-grid-9" style="background: white;">
+    	<li id="yyjj" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="https://m.douban.com/movie">
+    	        <span class="mui-icon iconfont icon-dianying" style="color: darkgoldenrod;"></span>
+    	        <div  class="mui-media-body">豆瓣电影</div>
+    	    </a>
+    	</li>
+  
+    	<li id="kuaidi" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="#">
+    	        <span class="mui-icon iconfont icon-waimai" style="color: cornflowerblue;"></span>
+    	        <div class="mui-media-body">快递查询</div>
+    	    </a>
+    	</li>
+    	
+    	<li id="website" class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+    	    <a href="#">
+    	        <span class="mui-icon mui-icon-navigate" style="color: green;"></span>
+    	        <div class="mui-media-body">访问Web站</div>
+    	    </a>
+    	</li>
+    	
+    	
+    </ul>
+    </div>
+    <script src="js/mui.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    mui.init();
+    </script>
+    
+    <script>
+	mui.plusReady(function(){
+		 
+	  	//处理点击事件，需要打开原生浏览器
+		mui('#yyjj').on('tap', 'a', function(e) {
+			var href = this.getAttribute('href');
+			if (href) {
+				if (window.plus) {
+					plus.runtime.openURL(href);
+				} else {
+					location.href = href;
+				}
+			}
+		});   
+	  	
+	  	//打开聊天页
+	  	mui('#chat').on('tap', 'a', function(e) {
+			 mui.openWindow({
+				url: 'chat.html', 
+				id:'chat.html'
+			});
+	
+		});
+		
+		//打开留言页
+	  	mui('#liuyan').on('tap', 'a', function(e) {
+			 mui.openWindow({
+				url: 'liuyan.html', 
+				id:'liuyan.html'
+			});
+	
+		});
+		
+		//打开打赏页
+	  	mui('#dashan').on('tap', 'a', function(e) {
+			 mui.openWindow({
+				url: 'payme.html', 
+				id:'payme.html'
+			});
+	
+		});
+		
+		//打开web站点
+	  	mui('#website').on('tap', 'a', function(e) {
+	  		alert("将跳转至HXC博客Web站点！");
+			 mui.openWindow({
+				url: 'http://www.huxinchun.com', 
+				id:'http://www.huxinchun.com'
+			});
+	
+		});
+		
+		//打开it资讯
+	  	mui('#itzixun').on('tap', 'a', function(e) {
+			 mui.openWindow({
+				url: 'zixun.html', 
+				id:'itzixun/tab-index.html'
+			});
+	
+		});
+		
+		//打开it资讯
+	  	mui('#move').on('tap', 'a', function(e) {
+			 mui.openWindow({
+				url: 'move.html', 
+				id:'move.html'
+			});
+	
+		});
+		
+		//打开it资讯
+	  	mui('#kuaidi').on('tap', 'a', function(e) {
+	  		alert("将通过浏览器访问！");
+			 mui.openWindow({
+				url: 'http://m.kuaidi100.com/', 
+				id:'http://m.kuaidi100.com/'
+			});
+	
+		});
+		
+		//扫一扫
+	  	mui('#sao').on('tap', 'a', function(e) {
+			 mui.openWindow({
+				url: 'barcode.html', 
+				id:'borcode.html'
+			});
+		});
+	  	
+
+	});
+	
+	
+	</script>
+
+    
+ 
+</body>
+</html>
+

@@ -1,0 +1,321 @@
+{
+  "tab-index.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/shuijiao.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/hxc.png",
+      "images/banner1.png",
+      "images/banner2.jpg",
+      "images/banner3.jpg",
+      "images/banner4.jpg",
+      "images/banner5.jpg",
+      "js/vue.min.js",
+      "images/banner5.png",
+      "images/banner4.png"
+    ],
+    "refer": [
+      "tab2-cbd.html",
+      "tab2-felicity.html",
+      "tab2-mu.html",
+      "list.html",
+      "content.html",
+      "blog.html",
+      "news.html",
+      "detail.html"
+    ]
+  },
+  "index.html": {
+    "resources": [
+      "tab-index.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "itzixun/listview.html"
+    ],
+    "refer": [
+      "tab-index.html",
+      "tab-find.html",
+      "tab-my.html",
+      "tab-news.html",
+      "blog.html",
+      "index/listview.html",
+      "list-to-detail/listview.html",
+      "tab2-cbd.html",
+      "liuyan.html",
+      "tool.html",
+      "itzixun/listview.html",
+      "listview.html"
+    ]
+  },
+  "tab-news.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/app.css",
+      "fonts/mui.ttf",
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/shuijiao.jpg"
+    ],
+    "refer": []
+  },
+  "tab-my.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "css/feedback.css",
+      "js/feedback.js",
+      "js/mui.view.js",
+      "images/logo.png",
+      "images/yuantiao.jpg",
+      "images/aboutme.jpg",
+      "images/pay.jpg"
+    ],
+    "refer": []
+  },
+  "tab-find.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "content.html": {
+    "resources": [
+      "images/cbd.jpg",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/mui.ttf",
+      "images/hxc2.png"
+    ],
+    "refer": []
+  },
+  "blog.html": {
+    "resources": [
+      "js/mui.pullToRefresh.js",
+      "js/mui.pullToRefresh.material.js",
+      "images/shuijiao.jpg",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/default.gif"
+    ],
+    "refer": [
+      "content.html"
+    ]
+  },
+  "index/listview.html": {
+    "resources": [
+      "index/vue.min.js"
+    ],
+    "refer": []
+  },
+  "list-to-detail/listview.html": {
+    "resources": [
+      "list-to-detail/vue.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "list-to-detail/detail.html"
+    ]
+  },
+  "list-to-detail/detail.html": {
+    "resources": [
+      "list-to-detail/list-to-detail.css",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "list-to-detail/vue.min.js"
+    ],
+    "refer": []
+  },
+  "tab2-cbd.html": {
+    "resources": [
+      "images/shuijiao.jpg",
+      "images/cbd.jpg",
+      "images/yuantiao.jpg"
+    ],
+    "refer": []
+  },
+  "tool.html": {
+    "resources": [
+      "css/feedback.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/feedback.js",
+      "js/mui.view.js",
+      "chat.html",
+      "js/mui.js",
+      "css/mui.css",
+      "css/iconfont2.css",
+      "fonts/iconfont2.ttf",
+      "images/banner2.jpg",
+      "css/icons-extra.css",
+      "fonts/mui-icons-extra.ttf"
+    ],
+    "refer": [
+      "tab2-mu.html",
+      "chat.html",
+      "liuyan.html",
+      "test.html",
+      "payme.html",
+      "itzixun/listview.html",
+      "move.html",
+      "tab-index.html",
+      "zixun.html",
+      "barcode.html"
+    ]
+  },
+  "tab2-mu.html": {
+    "resources": [
+      "images/yuantiao.jpg",
+      "images/muwu.jpg",
+      "images/shuijiao.jpg"
+    ],
+    "refer": []
+  },
+  "chat.html": {
+    "resources": [
+      "js/mui.imageViewer.js",
+      "css/mui.imageviewer.css",
+      "js/arttmpl.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "tool.html",
+      "css/app.css",
+      "images/xiaomi.jpg"
+    ],
+    "refer": [
+      "tool.html"
+    ]
+  },
+  "news.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/hxc2.png"
+    ],
+    "refer": []
+  },
+  "liuyan.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/shuijiao.jpg",
+      "images/default.gif",
+      "images/liuyanbg.jpg"
+    ],
+    "refer": [
+      "liuyan.html"
+    ]
+  },
+  "test.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "payme.html": {
+    "resources": [
+      "js/mui.min.js",
+      "images/pay.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "itzixun/listview.html": {
+    "resources": [
+      "itzixun/vue.min.js",
+      "css/mui.min.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf"
+    ],
+    "refer": [
+      "itzixun/detail.html"
+    ]
+  },
+  "itzixun/detail.html": {
+    "resources": [
+      "itzixun/list-to-detail.css",
+      "itzixun/vue.min.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "move.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/pay.jpg",
+      "fonts/mui.ttf",
+      "images/move.png"
+    ],
+    "refer": []
+  },
+  "guide.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "listview.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/vue.min.js"
+    ],
+    "refer": [
+      "detail.html"
+    ]
+  },
+  "detail.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "js/vue.min.js",
+      "fonts/mui.ttf",
+      "images/hxc2.png",
+      "css/list-to-detail.css"
+    ],
+    "refer": []
+  },
+  "zixun.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "news.html"
+    ]
+  },
+  "barcode.html": {
+    "resources": [
+      "js/mui.min.js"
+    ]
+  }
+}

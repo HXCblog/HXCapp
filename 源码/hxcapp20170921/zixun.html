@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <style>
+		html,body {
+			background-color: #efeff4;
+		}
+		.title{
+			margin: 20px 15px 10px;
+			color: #6d6d72;
+			font-size: 15px;
+		}
+		.mui-slider{
+			height: 120px;
+		}
+		#OA_task_1 a{
+			font-size: 14px;
+		}
+		
+		.mui-media-body{
+			text-overflow:ellipsis;
+			white-space:nowrap;
+			overflow:hidden;
+		}
+	</style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav mui-action-back">
+			<a href="#"><span class="mui-icon mui-icon-left-nav "></span>返回</a>
+			<h1 class="mui-title">资讯</h1>
+	</header>
+	 
+	<div class="mui-content" style="margin-top: -15px;">
+		<!--文章列表开始-->
+		<ul id="OA_task_1"  class="mui-table-view mui-table-view">
+		</ul>
+		<!--文章列表结束-->
+	</div>
+	
+	<!--列表数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function(){
+		        mui.ajax({
+		            url:'http://spider.dcloud.net.cn/api/news',
+		            type:'GET',
+		            success:function(data){   
+		                for(var i in data){
+		                //定义地址
+		                var uri='http://spider.dcloud.net.cn/api/news/36kr/'+data[i].post_id;
+		                //定义列表缩略图
+		                var listtu=data[i].author_avatar;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="'+listtu+'"><div class="mui-media-body">';
+		              	var indexl5='<p class="mui-ellipsis" >';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("OA_task_1").innerHTML;
+		          
+		   				//循环插入数据和标签
+						document.getElementById("OA_task_1").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].created_at+indexl7
+						;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    });
+		});
+		
+	
+		//发送链接地址
+            function SendPage(self,pageId, linkUrl, pageParam) {  
+            	var dizhi=self.href;
+            	var param = { //这是要传的数据  
+                uurl: dizhi  
+            };  
+            	
+                mui.openWindow({//目标页面  
+                    url: 'news.html',  
+                    id: 'news.html',  
+                    extras:param
+                });  
+            }  
+		</script>
+	<!--列表数据抽取结束-->
+	
+	
+</body>
+</html>

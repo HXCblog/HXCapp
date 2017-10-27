@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		
+		<style>
+		/*代码高亮*/
+			pre{white-space:pre-wrap;
+			white-space:-moz-pre-wrap;white-space:-pre-wrap;
+			white-space:-o-pre-wrap;word-wrap:break-word;
+			color: #0bbdad!important;
+			background: #333!important;
+			padding: 5px;
+			font-size: 12px;
+			border-radius: 3px;
+			}
+		/*内容图片样式*/
+			.mui-card-content img{
+			height: auto; width:auto\9; width:100%;
+			border:1px solid#aaa;
+			padding: 2px;
+			border-radius: 2px;
+			}
+			#body_content_img img{
+				height: auto; width:auto\9; width:100%;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+		
+		<div style="display: inline-block;">
+			<!--头部开始-->
+			<header id="header" class="mui-bar" style="margin-top:-18px;">
+				<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				<h1 class="mui-title">文章页</h1>
+			</header>
+			<!--头部结束-->
+		</div>
+		
+		
+		<!--内容页主体部分开始-->
+		<div class="mui-card" style="margin-top:30px;">
+			<!--页眉，放置标题-->
+			<div id="yemei" class="mui-card-header" ></div>
+			<!--内容区-->
+			<span id="body_content_img" style="height: 100px;"><img src="images/hxc2.png" /></span>
+			<div id='body_content' class="mui-card-content" style="padding:15px;"></div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer">HXC博客版权所有</div>
+		</div>
+		<!--内容页主体部分结束-->
+		<script type="text/javascript" charset="utf-8">  
+            mui.plusReady(function() { 
+            	mui.init();
+                var self = plus.webview.currentWebview();  //获取当前窗口的webviewObject对象
+				var myurl=self.uurl;
+				var urlarr = myurl.split("36kr/");//分割链接地址取出文章id
+				//获取内容接口数据
+				 mui.ajax({
+		            url:'http://spider.dcloud.net.cn/api/news/36kr/'+urlarr[1],
+		            type:'GET',
+		            success:function(data){
+	               	var temp=document.getElementById("body_content").innerHTML;
+	               	var temptitle=document.getElementById("yemei").innerHTML;
+		   				//循环插入数据和标签
+					document.getElementById("body_content").innerHTML=temp+data.content;
+					document.getElementById("yemei").innerHTML=temptitle+data.title;
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		  		 });
+				
+            });  
+        </script>
+   
+   	
+	</body>
+
+</html>

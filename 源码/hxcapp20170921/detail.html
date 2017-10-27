@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+		/*代码高亮*/
+			pre{white-space:pre-wrap;
+			white-space:-moz-pre-wrap;white-space:-pre-wrap;
+			white-space:-o-pre-wrap;word-wrap:break-word;
+			color: #0bbdad!important;
+			background: #333!important;
+			padding: 5px;
+			font-size: 12px;
+			border-radius: 3px;
+			}
+		/*内容图片样式*/
+			.mui-card-content img{
+			height: auto; width:auto\9; width:100%;
+			border:1px solid#aaa;
+			padding: 2px;
+			border-radius: 2px;
+			}
+			#body_content_img img{
+				height: auto; width:auto\9; width:100%;
+			}
+		
+		.auth{
+			display: inline-block;
+			font-size: 15px;
+			color: #777;
+		}
+		</style>
+		
+	</head>
+
+	<body>
+		<div style="display: inline-block;">
+			<!--头部开始-->
+			<header id="header" class="mui-bar" style="margin-top:-18px;">
+				<h1 class="mui-title">科技前沿</h1>
+			</header>
+			<!--头部结束-->
+		</div>
+		
+		<!--内容页主体部分开始-->	
+		<div class="mui-content">
+			<div class="mui-card" style="margin-top:30px;">
+				<!-- 文章作者、发布时间等信息 -->
+				<div id="yemei" class="mui-card-header" >
+					<h4>{{title}}</h4>
+				</div>
+				
+				<div style="background: #f8f8f8;border-radius: 3px;text-align: center;">
+					<div class="auth">{{author}}</div>
+					<div class="auth">发表于</div>
+					<div class="auth" style="color: #2187E7;">{{time}}</div>
+				</div>
+				<!--内容区-->
+				<span id="body_content_img" style="height: 100px;"><img src="images/hxc2.png" /></span>
+				<div id='body_content' class="mui-card-content" style="padding:15px;">
+					<!--文章详细内容-->
+					<div id="kr-article-article" class="kr-article-article" v-html="content"></div>
+				</div>
+				<!--页脚，放置补充信息或支持的操作-->
+				<div class="mui-card-footer">HXC博客版权所有</div>	
+			</div>
+		</div>
+		<!--内容页主体部分结束-->
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			mui.init();
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			function getDefaultData() {
+				return {
+					cover: '',
+					title: '',
+					author: '',
+					time: '',
+					content: ''
+				}
+			}
+
+			var vm = new Vue({
+				el: '.mui-content',
+				data: getDefaultData(),
+				methods: {
+					resetData: function() {//重置数据
+						Object.assign(this.$data, getDefaultData());
+					}
+				}
+			});
+
+			//监听自定义事件，获取新闻详情
+			document.addEventListener('get_detail', function(event) {
+				var guid = event.detail.guid;
+				if(!guid) {
+					return;
+				}
+				//前页传入的数据，直接渲染，无需等待ajax请求详情后
+				vm.cover = event.detail.cover;
+				vm.title = event.detail.title;
+				vm.author = event.detail.author;
+				vm.time = event.detail.time;
+				//向服务端请求文章详情内容
+				mui.ajax('http://spider.dcloud.net.cn/api/news/36kr/' + guid, {
+					type:'GET',
+					dataType: 'json', //服务器返回json格式数据
+					timeout: 15000, //15秒超时
+					success: function(rsp) {
+						vm.content = rsp.content;
+					},
+					error: function(xhr, type, errorThrown) {
+						mui.toast('获取文章内容失败');
+						//TODO 此处可以向服务端告警
+					}
+				});
+			});
+
+			//重写返回逻辑
+			mui.back = function() {
+				plus.webview.currentWebview().hide("auto", 300);
+				//动画结束后，恢复默认值
+				setTimeout(function() {
+					window.scrollTo(0, 0);
+					vm.resetData();
+				}, 300);
+			}
+		</script>
+		
+   
+	</body>
+
+</html>
+
+
+

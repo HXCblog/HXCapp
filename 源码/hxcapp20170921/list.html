@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		 <script type="text/javascript" charset="utf-8">  
+            mui.plusReady(function() { 
+            	mui.init();
+                var self = plus.webview.currentWebview();  //获取当前窗口的webviewObject对象
+				var myurl=self.uurl;
+				var urlarr = myurl.split("content/");//分割链接地址取出文章id
+				//获取内容接口数据
+				 mui.ajax({
+		            url:'http://www.huxinchun.com/api/next?id='+urlarr[1],
+		            type:'GET',
+		            success:function(data){
+	                document.write("<h3>"+data.title+"</h3>"+"<br>"+data.author+data.createtime+"<br />"+data.content+"<br>");
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		  		 });
+				
+            });  
+        </script>  
+        
+    
+     
+	</body>
+
+</html>

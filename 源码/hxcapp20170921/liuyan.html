@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<!-- <link rel="stylesheet" type="text/css" href="css/app.css" /> -->
+		<style>
+			h5 {
+				margin: 5px 7px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav mui-action-back">
+			<a href="#"><span class="mui-icon mui-icon-left-nav "></span>返回</a>
+			<h1 class="mui-title">留言吐槽</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded" style="margin: 5px;">
+			
+			<!--留言表单-->
+			<form>
+				<div style="width: 100%;height:80px;background: #2AC845;margin-bottom: 20px;">
+					<img width="100%" height="auto" src="images/liuyanbg.jpg">
+				</div>
+				<!--昵称站名-->
+				<h5>请输入昵称或站名：</h5>
+				<div >
+					<input id="name" type="text" placeholder="昵称/站名">
+				</div>
+				<!--留言内容-->
+				<div class="mui-input-row" style="margin-top: 10px;">
+					<textarea id="content" id="textarea" rows="5" placeholder="留言内容（140字内）"></textarea>
+				</div>
+				<!--提交按钮-->
+				<button id="insertliu" class="mui-btn mui-btn-primary mui-btn-block">留言</button>
+			</form>
+				
+			<!--留言列表-->
+			<div class="title">
+				留言列表
+			</div>
+				<ul class="mui-table-view" id="zhuye" style="margin-top: 10px;">	
+				</ul>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		
+		<!--获取留言列表-->
+		<script>
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+			//留言列表获取
+			 mui.ajax({
+		            url:'http://www.huxinchun.com/api/liuyan',
+		            type:'GET',
+		            success:function(data){
+		                for(var i in data){
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-ellipsis">';
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></li>';
+		              	var temp=document.getElementById("zhuye").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("zhuye").innerHTML=temp+indexl1+indexl3+data[i].name+indexl5+data[i].content+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		    	
+		</script>
+	
+		<!--提交留言数据-->
+		<script type="text/javascript">
+			mui.plusReady(function(){
+				var name=document.getElementById("name");
+				var content=document.getElementById("content");
+				//监听button点击事件
+				insertliu.addEventListener('tap',function(){
+					mui.ajax('http://huxinchun.com/api/myliuyan',{
+						//表单数据的value值
+						data:{
+							name:name.value,
+							content:content.value
+						},
+						dataType:'json',
+						type:'get',
+						timeout:10000,
+						success:function(data){
+							alert("留言成功！");
+							document.location.reload();
+						},
+						error:function(){
+							alert("系统错误！");
+						}
+					})
+				})
+			}	
+			)
+		</script>
+		
+	</body>
+
+</html>

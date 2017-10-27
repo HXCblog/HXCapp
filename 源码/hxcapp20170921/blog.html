@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>HXCblog</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			.mui-bar~.mui-content .mui-fullscreen {
+				top: 44px;
+				height: auto;
+			}
+			.mui-pull-top-tips {
+				position: absolute;
+				top: -20px;
+				left: 50%;
+				margin-left: -25px;
+				width: 40px;
+				height: 40px;
+				border-radius: 100%;
+				z-index: 1;
+			}
+			.mui-bar~.mui-pull-top-tips {
+				top: 24px;
+			}
+			.mui-pull-top-wrapper {
+				width: 42px;
+				height: 42px;
+				display: block;
+				text-align: center;
+				background-color: #efeff4;
+				border: 1px solid #ddd;
+				border-radius: 25px;
+				background-clip: padding-box;
+				box-shadow: 0 4px 10px #bbb;
+				overflow: hidden;
+			}
+			.mui-pull-top-tips.mui-transitioning {
+				-webkit-transition-duration: 200ms;
+				transition-duration: 200ms;
+			}
+			.mui-pull-top-tips .mui-pull-loading {
+				margin: 0;
+			}
+			.mui-pull-top-wrapper .mui-icon,
+			.mui-pull-top-wrapper .mui-spinner {
+				margin-top: 7px;
+			}
+			.mui-pull-top-wrapper .mui-icon.mui-reverse {
+				/*-webkit-transform: rotate(180deg) translateZ(0);*/
+			}
+			.mui-pull-bottom-tips {
+				text-align: center;
+				background-color: #efeff4;
+				font-size: 15px;
+				line-height: 40px;
+				color: #777;
+			}
+			.mui-pull-top-canvas {
+				overflow: hidden;
+				background-color: #fafafa;
+				border-radius: 40px;
+				box-shadow: 0 4px 10px #bbb;
+				width: 40px;
+				height: 40px;
+				margin: 0 auto;
+			}
+			.mui-pull-top-canvas canvas {
+				width: 40px;
+			}
+			.mui-slider-indicator.mui-segmented-control {
+				background-color: #efeff4;
+			}
+		</style>
+	</head>
+
+	<body>
+	<!--HXC博客标题-->
+		<div class="mui-navbar-inner mui-bar mui-bar-nav">
+			<h1 class="mui-center mui-title">HXC博客</h1>
+		</div>
+		
+		
+		<div class="mui-content">
+			<div id="slider" class="mui-slider mui-fullscreen">
+				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<div class="mui-scroll">
+						<a class="mui-control-item" href="#item1mobile">
+							主页
+						</a>
+						<a class="mui-control-item" href="#item2mobile">
+							大前端
+						</a>
+						<a class="mui-control-item" href="#item3mobile">
+							移动
+						</a>
+						<a class="mui-control-item" href="#item4mobile">
+							UI框架
+						</a>
+						<a class="mui-control-item" href="#item5mobile">
+							杂谈
+						</a>
+						<a class="mui-control-item" href="#item6mobile">
+							H5&CSS3
+						</a>
+						<a class="mui-control-item" href="#item7mobile">
+							笔记
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-group">
+					<!--主页开始-->
+					<div id="item1mobile" class="mui-slider-item mui-control-content">
+						<div id="pullrefresh" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="zhuye" class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--主页结束-->
+
+					
+					<!--大前端开始-->
+					<div id="item2mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="daqianduan" class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--大前端结束-->
+					
+					<!--移动开始-->
+					<div id="item3mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="yidong" class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--移动结束-->
+					
+					<!--UI框架开始-->
+					<div id="item4mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="ui" class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--移动框架结束-->
+					
+					<!--杂谈开始-->
+					<div id="item5mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="zatan" class="mui-table-view">
+								
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--杂谈结束-->
+					
+					<!--H5&CSS3开始-->
+					<div id="item6mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="h5" class="mui-table-view">
+								
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--H5CSS3结束-->
+					
+					<!--笔记开始-->
+					<div id="item7mobile" class="mui-slider-item mui-control-content">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul id="biji" class="mui-table-view">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!--笔记结束-->
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.pullToRefresh.js"></script>
+		<script src="js/mui.pullToRefresh.material.js"></script>
+		<script>
+			mui.init();
+			(function($) {
+				//阻尼系数
+				var deceleration = mui.os.ios?0.003:0.0009;
+				$('.mui-scroll-wrapper').scroll({
+					bounce: false,
+					indicators: true, //是否显示滚动条
+					deceleration:deceleration
+				});
+			$.ready(function() {
+				//循环初始化所有下拉刷新，上拉加载。
+				$.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+					$(pullRefreshEl).pullToRefresh({
+						up: {
+							callback: function() {
+								var self = this;
+								setTimeout(function() {
+									var ul = self.element.querySelector('.mui-table-view');
+									ul.appendChild(createFragment(ul, index, 5));
+									self.endPullUpToRefresh();
+								}, 1000);
+							}
+						}
+					});
+				});
+					
+			var createFragment = function(ul, index, count, reverse) {
+			var length = ul.querySelectorAll('li').length;
+			var fragment = document.createDocumentFragment();//创建虚拟节点
+			var li;
+			var listdata=ajx();//定义列表数据
+			var count =0;//定义当前刷新次数
+			/*ajax 返回数据*/
+			function ajx(){
+				//第一实际刷新次数（当前为第几页）
+				var count=length/5+1;
+				//参数为true代表没有更多数据了。	
+				mui.ajax({
+					//调取分页数据
+			        url:'http://huxinchun.com/api/fenye?page='+count,
+			        type:'GET',
+			        success:function(data){
+			     	//循环生成列表数据
+			            for(var i in data){
+				            var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+				        	var indexl1='<li class="mui-table-view-cell mui-media">';
+				          	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+				          	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-ellipsis">';
+				          	var indexl5='<p class="mui-ellipsis">';
+				          	var indexl7='</p></div></a></li>';
+				          	var temp=document.getElementById("zhuye").innerHTML;
+						//循环插入数据和标签
+						document.getElementById("zhuye").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+			            }
+			        },
+			       error:function(xhr,type,errorThrown){
+					}
+				});
+			};
+			
+				
+			for (var i = 0; i < count; i++) {
+				li = document.createElement('li');
+				li.className = 'mui-table-view-cell';
+				li.innerHTML = listdata;
+				fragment.appendChild(li);
+			}
+				return fragment;
+				
+				};
+			
+				});
+			})(mui);
+			
+			
+		</script>		
+		
+	<!--主页数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function mmd(){
+		        mui.ajax({
+		            url:'http://www.huxinchun.com/api/index_ten',
+		            type:'GET',
+		            success:function(data){
+		         
+		                for(var i in data){
+		                var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-ellipsis">';
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("zhuye").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("zhuye").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		});
+		
+		
+		</script>
+	<!--主页数据抽取结束-->
+	
+	
+	<!--大前端数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function mmd(){
+		        mui.ajax({
+		            url:'http://www.huxinchun.com/api/daqianduan_ten',
+		            type:'GET',
+		            success:function(data){
+		         
+		                for(var i in data){
+		                var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-media-body">';
+		          
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("daqianduan").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("daqianduan").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		});
+		
+		
+		</script>
+	<!--大前端数据抽取结束-->
+	
+	<!--移动数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function mmd(){
+		        mui.ajax({
+		            url:'http://www.huxinchun.com/api/yidong_ten',
+		            type:'GET',
+		            success:function(data){
+		         
+		                for(var i in data){
+		                var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-media-body">';
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("yidong").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("yidong").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		});
+		
+		
+		</script>
+	<!--移动数据抽取结束-->
+	
+	<!--ui框架数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function mmd(){
+		        mui.ajax({
+		            url:'http://www.huxinchun.com/api/ui_ten',
+		            type:'GET',
+		            success:function(data){
+		         
+		                for(var i in data){
+		                var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-media-body">';
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("ui").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("ui").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		});
+		
+	
+		</script>
+	<!--ui框架数据抽取结束-->
+	
+	<!--杂谈数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function mmd(){
+		        mui.ajax({
+		            url:'http://www.huxinchun.com/api/zatan_ten',
+		            type:'GET',
+		            success:function(data){
+		         
+		                for(var i in data){
+		                var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-media-body">';
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("zatan").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("zatan").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		});
+		
+		
+		</script>
+	<!--杂谈数据抽取结束-->
+	
+	<!--大前端数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function mmd(){
+		        mui.ajax({
+		            url:'http://www.huxinchun.com/api/h5_ten',
+		            type:'GET',
+		            success:function(data){
+		         
+		                for(var i in data){
+		                var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-media-body">';
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("h5").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("h5").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		});
+		
+		
+		</script>
+	<!--h5数据抽取结束-->
+	
+	<!--笔记数据抽取开始-->
+	   <script type="text/javascript">
+		mui.init();
+		mui.plusReady(
+			function mmd(){
+		        mui.ajax({
+		            url:'http://www.huxinchun.com/api/biji_ten',
+		            type:'GET',
+		            success:function(data){
+		                for(var i in data){
+		                var uri='http://www.huxinchun.com/Home/content/'+data[i].id;
+		            	var indexl1='<li class="mui-table-view-cell mui-media">';
+		              	var indexl2='<a onclick="SendPage(this);return false;" href="'+uri+'">';
+		              	var indexl3='<img class="mui-media-object mui-pull-left" src="images/default.gif"><div class="mui-media-body">';
+		              	var indexl5='<p class="mui-ellipsis">';
+		              	var indexl7='</p></div></a></li>';
+		              	var temp=document.getElementById("biji").innerHTML;
+		   				//循环插入数据和标签
+						document.getElementById("biji").innerHTML=temp+indexl1+indexl2+indexl3+data[i].title+indexl5+data[i].description+indexl7;
+	                	}
+		            },
+		           error:function(xhr,type,errorThrown){
+					}
+		    	});
+		});
+		
+		//发送链接地址
+            function SendPage(self,pageId, linkUrl, pageParam) {  
+            	var dizhi=self.href;
+            	var param = { //这是要传的数据  
+                uurl: dizhi  
+            };  
+            	
+                mui.openWindow({//目标页面  
+                    url: 'content.html',  
+                    id: 'content.html',  
+                    extras:param
+                });  
+            }  
+		</script>
+	<!--笔记数据抽取结束-->
+	
+	</body>
+
+</html>

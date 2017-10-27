@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>支持一下</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+	<header class="mui-bar mui-bar-nav mui-action-back">
+		<a href="#"><span class="mui-icon mui-icon-left-nav "></span>返回</a>
+		<h1 class="mui-title">打赏一下</h1>
+	</header>
+	
+	<script src="js/mui.min.js"></script>
+	
+		
+		<div class="mui-card" style="margin-top: 50px;">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header" ><h4>打赏博主(支持一下)</h4></div>
+			<!--内容区-->
+			<div id="mysao" class="mui-card-content">
+				<a href="#">
+				<img width="100%" src="images/pay.jpg">
+				</a>
+			</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer" style="background: #f8f8f8;">您可以通过微信扫码，打赏博主2块大洋表示支持！</div>
+		</div>
+		
+	<script type="text/javascript">
+		mui.init();
+		//打开聊天页
+	  	mui('#mysao').on('tap', 'a', function(e) {
+		// 保存图片到相册中 
+		savePicture();
+		function savePicture() {
+		// 创建下载任务
+		picurl="images/pay.jpg";
+		picname="_downloads/pay.jpg";
+		var dtask = plus.downloader.createDownload(picurl, {}, function ( d, status ) {
+		// 下载完成
+		if ( status == 200 ) { 
+		alert( "Download success: " + d.filename );
+		plus.gallery.save(picname,function() {
+		mui.toast('保存成功');
+		}, function() {
+		mui.toast('保存失败，请重试！');
+		});
+		} else {
+		alert( "Download failed: " + status ); 
+		}
+		
+		});
+		//dtask.addEventListener( "statechanged", onStateChanged, false );
+		dtask.start();
+		
+		}
+	
+		});
+	</script>
+	
+	</body>
+
+</html>
